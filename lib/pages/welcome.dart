@@ -24,17 +24,6 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'WELCOME TO',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w800,
-                      height: 1.2175,
-                      color: const Color.fromARGB(223, 255, 53, 53),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
                   SizedBox(
                     width: 214,
                     height: 205,
