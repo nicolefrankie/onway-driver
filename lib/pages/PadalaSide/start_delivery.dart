@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -10,20 +12,18 @@ class StartBooking extends StatefulWidget {
 }
 
 class _StartBookingState extends State<StartBooking> {
+  final Completer<GoogleMapController> _mapController = Completer();
+  
   @override
-  Widget build(BuildContext context) {
-    GoogleMapController? _mapController;
-    
+  Widget build(BuildContext context) {  
     return Scaffold(
       body: Stack(
         children: [
           // Google Maps Widget as the background
           Expanded(
             child: GoogleMap(
-              onMapCreated: (controller) {
-                setState(() {
-                  _mapController = controller;
-                });
+              onMapCreated: (GoogleMapController controller) {
+                _mapController.complete(controller);
               },
               initialCameraPosition: CameraPosition(
                 target: LatLng(37.7749, -122.4194), 
