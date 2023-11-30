@@ -177,7 +177,7 @@ class PadalaConfirmation extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.of(context).pop(); // Close the confirmation dialog
+                                Navigator.of(context).pop(); 
                                 // Show another dialog indicating book decline
                                 showDialog(
                                   context: context,

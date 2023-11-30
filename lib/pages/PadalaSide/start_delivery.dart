@@ -15,8 +15,9 @@ class StartBooking extends StatefulWidget {
 
 class _StartBookingState extends State<StartBooking> {
   final Completer<GoogleMapController> _mapController = Completer();
-  static const LatLng driverLocation = LatLng(15.1428163,-120.5943814);
-  static const LatLng userLocation = LatLng(15.1451258,-120.592064);
+  
+  static const LatLng driverLocation = LatLng(16.043493,120.3301977);
+  static const LatLng userLocation = LatLng(16.043067,120.336524);
   static const CameraPosition cameraPosition = CameraPosition(
     target: driverLocation,
     zoom: 15.5,
