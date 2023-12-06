@@ -13,8 +13,9 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   String? selectedBarangay;
-  final TextEditingController _accountNumberController =
-      TextEditingController();
+  bool _passwordVisible = false;
+
+  final TextEditingController _accountNumberController =TextEditingController();
   final TextEditingController _bankController = TextEditingController();
   final TextEditingController _streetAddressController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -22,6 +23,8 @@ class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _licenseNumberController = TextEditingController();
+  final TextEditingController _passwordController =TextEditingController();
+
   String? selectedId;
   File? driverLicense;
 
@@ -29,6 +32,12 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() {
       selectedId = value;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = false;
   }
   
   @override
@@ -436,6 +445,58 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Password",
+                    style: GoogleFonts.amiko(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: _passwordController,
+                  keyboardType: TextInputType.text,
+                  obscureText: !_passwordVisible,
+                  cursorColor: const Color.fromARGB(255, 0, 0, 0),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      borderSide: const BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                    ),
+                    filled: true,
+                    fillColor: const Color.fromARGB(255, 255, 254, 254),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          _passwordVisible = !_passwordVisible;
+                        },
+                      );
+                    },
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                ),
+              ),
                 const SizedBox(
                   height: 30,
                 ),
