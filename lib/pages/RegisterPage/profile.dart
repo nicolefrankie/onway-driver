@@ -476,7 +476,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     filled: true,
-                    fillColor: const Color.fromARGB(255, 255, 254, 254),
+                    fillColor: const Color.fromARGB(255, 255, 254, 254)
+                        .withOpacity(0.3),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _passwordVisible
